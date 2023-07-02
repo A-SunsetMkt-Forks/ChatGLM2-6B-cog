@@ -15,7 +15,7 @@ class Predictor(BasePredictor):
         )
         model = AutoModel.from_pretrained(
             "./chatglm2-6b", trust_remote_code=True, local_files_only=True
-        ).cuda()
+        ).float().cuda()
         patch_chat_glm.patch(model)
         self.model = model.eval()
 
